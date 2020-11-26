@@ -19,7 +19,12 @@ Array.prototype.remove = function() {
 
 app
 .use(bodyParser.json())
-.use((req,res,next)=>{res.set("Access-Control-Allow-Origin","*");res.set("Access-Control-Allow-Headers","*");next()})
+
+.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  })
 .get('/students',(req,res)=>
 {
 
