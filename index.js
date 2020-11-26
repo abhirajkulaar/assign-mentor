@@ -19,7 +19,7 @@ Array.prototype.remove = function() {
 
 app
 .use(bodyParser.json())
-.use((req,res,next)=>{res.header("Access-Control-Allow-Origin","*");res.header("Access-Control-Allow-Headers","*");next()})
+.use((req,res,next)=>{res.set("Access-Control-Allow-Origin","*");res.set("Access-Control-Allow-Headers","*");next()})
 .get('/students',(req,res)=>
 {
 
